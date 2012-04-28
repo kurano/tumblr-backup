@@ -1,0 +1,14 @@
+tumblr:
+  consumer_key: 'xxxxx'
+  consumer_secret: 'xxxxx'
+  oauth_token: 'xxxxx'
+  oauth_token_secret: 'xxxxx'
+  site: 'xxxxx.tumblr.com'
+
+mongo:
+  host: '999999.mongolab.com'
+  port: 99999
+  db: 'xxxxxx'
+  user: 'name'
+  pass: 'password'
+  coll: 'posts' 
