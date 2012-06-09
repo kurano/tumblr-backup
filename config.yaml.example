@@ -12,3 +12,12 @@ mongo:
   user: 'name'
   pass: 'password'
   coll: 'posts' 
+
+blog:
+  title: 'BLOG TITLE'
+  url: 'http://example.net'
+  author:
+    name: 'John Doe'
+    uri: 'http://example.net/'
+  limit: 20
+

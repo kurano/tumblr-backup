@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<feed xml:lang='ja' xmlns='http://www.w3.org/2005/Atom'>
+  <title><%= @blog['title'] %></title>
+  <link href='<%= @blog['url'] %>/text/index.html' rel='alternate' type='text/html' />
+  <link href='<%= @blog['url'] %>/feed.atom' rel='self' type='application/atom+xml' />
+  <author>
+    <name><%= @blog['author']['name'] %></name>
+    <uri><%= @blog['author']['uri'] %></uri>
+  </author>
+  <id><%= UUIDTools::UUID.md5_create(UUIDTools::UUID_DNS_NAMESPACE, "#{@blog['url']}/text/index.html").to_uri %></id>
+  <updated><%= Time.at(@posts.first['timestamp']).xmlschema %></updated>
+  <% @posts.each do |p| %>
+  <entry>
+    <title><%= p['title'] %></title>
+    <link href="<%= p['post_url'] %>" rel='alternate' type='text/html' />
+    <id><%= UUIDTools::UUID.timestamp_create(Time.at(p['timestamp'])).to_uri %></id>
+    <updated><%= Time.at(p['timestamp']).xmlschema %></updated>
+    <content type='html'>
+      <%= p['body'] %>
+    </content>
+  </entry>
+  <% end %>
+</feed>

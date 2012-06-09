@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <% if @agent =~ /iPad|iPhone|iPod/ %>
+      <meta name="viewport" content="user-scalable=no, width=device-width"/>
+      <link rel="stylesheet" href="/ios.css">
+    <% else %>
+      <link rel="stylesheet" href="/pc.css">
+    <% end %>
+    <title><%= @blog['title'] %></title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" href="/feed.atom" type="application/atom+xml" title="AtomFeed" />
+
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="blog_title"><a href="/"><%= @blog['title'] %></a>
+      <span class="rss"><a href="/feed.atom"><img src="/feed-icon-28x28.png" style="position: relative; top: 5px;"></a></span></h1>
+
+      <%= yield %>
+
+      <%= @footer %>
+    </div>
+  </body>
+</html>

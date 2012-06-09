@@ -1,0 +1,37 @@
+<% n = @posts.count %>
+<% limit = @blog['limit'] %>
+<nav class="paginate" style="margin: 0px 20px 0px 20px;">
+  <% 0.step(n, limit) do |i| %>
+    <% case i %>
+    <% when 0 %>
+      <a href="/text/index.html">Top</a>
+    <% else %>
+      <a href="/text/page/<%= i/limit %>.html"><%= i/limit %></a>
+    <% end %>
+  <% end %>
+</nav>
+
+<% @posts.each do |p| %>
+<div class="post">
+  <h2 class="post_title"><a href="/text/id/<%= p['id'] %>.html"><%= p['title'] %></a></h3>
+  <a href="http://sadayuki.kurano.name/post/<%= p['id'] %>"><span style="font-size: small;">Type: <%= p['type'] %></span> , 
+  <span style="font-size: small;">Posted at: <%= Time.at(p['timestamp']) %></span></a>
+  <div class="content">
+    <%= p['body'] %>
+  </div>
+  <div style="padding: 2px 2px 2px 20px;">
+    <g:plusone></g:plusone>
+  </div>
+</div>
+<% end %>
+
+<nav class="paginate" style="margin: 0px 20px 0px 20px;">
+  <% 0.step(n, limit) do |i| %>
+    <% case i %>
+    <% when 0 %>
+      <a href="/text/index.html">Top</a>
+    <% else %>
+      <a href="/text/page/<%= i/limit %>.html"><%= i/limit %></a>
+    <% end %>
+  <% end %>
+</nav>

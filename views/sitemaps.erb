@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc><%= @blog['url'] %>/text/index.html</loc>
+    <changefreq>always</changefreq>
+  </url>
+  <% @posts.each do |p| %>
+  <url>
+    <loc><%= @blog['url'] %>/<%= p['type'] %>/id/<%= p['id'] %>.html</loc>
+    <lastmod><%= Time.at(p['timestamp']).xmlschema %></lastmod>
+    <changefreq>never</changefreq>
+  </url>
+  <% end %>
+</urlset>
